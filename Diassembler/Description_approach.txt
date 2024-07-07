@@ -1,0 +1,14 @@
+REPORT:
+I have refered the RISC- V instruction file and broke it down the cases.
+I have written a function to convert a part of instruction by giving end,start indices along with instruction as integer(as it can fit 32 bits which is same as instruction size)
+to get that block I have used shift operator to get this . For unsigned value I have in unsigned integer and signed in signed integer. 
+My approach is to first identify the instruction type using opcode. 
+Based on func3,func7 I wrote different cases in each instruction( using switch cases).
+I have printed them at the end of loop.
+Then to print labels instead of immediates in B and J type. I have assumed that instruction are less than 20 and defined a structure containg label immediate and label number.
+Only B,J format instructions are stored in the array. Label immediates in the array is initialised with -1 to avoid any clash with zero.
+Each time as an instruction gets printed immediate stored in this array is reduced by 4 and when two instructions have same changed immediate (i.e they both refer to same label below) they both are given same label and if something has different immediate than the ones present it is alloted another label (incremented)
+Checking if an instruction is incorrect by printing it in default case of switch i.e something not present in the card provided and also I am checking if hexadecimal is invalid and if it is 8 bits or not.
+Reading the file line by line and converting and storing string into hexadecimal value using sscanf
+Checked it with various machine codes produced by RIPES stimulator on writing assembly codes
+
